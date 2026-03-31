@@ -1,0 +1,18 @@
+# Node / Vite
+**/node_modules/
+**/dist/
+**/.vite/
+
+# Logs
+**/*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Env files (if any)
+**/.env
+**/.env.*
