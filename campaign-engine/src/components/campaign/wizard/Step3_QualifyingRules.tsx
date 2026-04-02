@@ -22,7 +22,7 @@ export default function Step3_QualifyingRules() {
         <div className="flex items-center gap-2">
           <Filter className="h-5 w-5" style={{ color: 'var(--accent-primary)' }} />
           <div>
-            <h2 className="text-lg font-display font-semibold text-white">Qualifying Rules</h2>
+            <h2 className="text-lg font-display font-semibold text-foreground">Qualifying Rules</h2>
             <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
               Build nested AND/OR conditions. Leave empty to qualify all transactions.
             </p>

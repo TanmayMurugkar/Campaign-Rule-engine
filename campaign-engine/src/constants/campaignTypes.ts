@@ -54,8 +54,8 @@ export const CAMPAIGN_STATUS_CONFIG = {
   },
   active: {
     label: 'Active',
-    color: 'text-emerald-400',
-    bg: 'bg-emerald-400/10',
+    color: 'text-amber-400',
+    bg: 'bg-amber-400/10',
     badgeClass: 'badge-active',
   },
   paused: {

@@ -122,7 +122,7 @@ export default function Step1_CampaignDetails() {
           style={{ borderColor: 'var(--border)' }}
         >
           <FileText className="h-4 w-4" style={{ color: 'var(--accent-primary)' }} />
-          <h2 className="text-sm font-semibold text-white">Campaign Information</h2>
+          <h2 className="text-sm font-semibold text-foreground">Campaign Information</h2>
         </div>
 
         {/* Campaign ID — read-only */}
@@ -138,7 +138,7 @@ export default function Step1_CampaignDetails() {
             className="flex h-9 w-full items-center rounded-lg border px-3 text-sm font-mono select-all cursor-text"
             style={{
               borderColor: 'var(--border)',
-              backgroundColor: 'rgba(255,255,255,0.03)',
+              backgroundColor: 'var(--surface-subtle)',
               color: 'var(--text-secondary)',
             }}
           >
@@ -150,7 +150,7 @@ export default function Step1_CampaignDetails() {
         <div className="space-y-1.5">
           <Label
             htmlFor={`${formId}-name`}
-            className="text-sm font-medium text-white"
+            className="text-sm font-medium text-foreground"
           >
             Campaign Name{' '}
             <span style={{ color: 'var(--accent-danger)' }}>*</span>
@@ -187,7 +187,7 @@ export default function Step1_CampaignDetails() {
         <div className="space-y-1.5">
           <Label
             htmlFor={`${formId}-desc`}
-            className="text-sm font-medium text-white"
+            className="text-sm font-medium text-foreground"
           >
             Description
           </Label>
@@ -240,7 +240,7 @@ export default function Step1_CampaignDetails() {
           style={{ borderColor: 'var(--border)' }}
         >
           <Tag className="h-4 w-4" style={{ color: 'var(--accent-primary)' }} />
-          <h2 className="text-sm font-semibold text-white">
+          <h2 className="text-sm font-semibold text-foreground">
             Campaign Type{' '}
             <span style={{ color: 'var(--accent-danger)' }}>*</span>
           </h2>
@@ -262,7 +262,7 @@ export default function Step1_CampaignDetails() {
                     className={cn(
                       'relative flex flex-col items-start gap-3 rounded-xl border p-4 text-left transition-all duration-150',
                       isSelected
-                        ? 'shadow-[0_0_0_2px_rgba(99,102,241,0.6)]'
+                        ? 'shadow-[0_0_0_2px_rgba(156,29,38,0.6)]'
                         : 'hover:translate-y-[-1px] hover:shadow-lg'
                     )}
                     style={{
@@ -270,7 +270,7 @@ export default function Step1_CampaignDetails() {
                         ? 'var(--accent-primary)'
                         : 'var(--border)',
                       backgroundColor: isSelected
-                        ? 'rgba(99,102,241,0.08)'
+                        ? 'rgba(156,29,38,0.08)'
                         : 'transparent',
                     }}
                   >
@@ -286,8 +286,8 @@ export default function Step1_CampaignDetails() {
                       className="rounded-lg p-2 transition-colors"
                       style={{
                         backgroundColor: isSelected
-                          ? 'rgba(99,102,241,0.2)'
-                          : 'rgba(255,255,255,0.06)',
+                          ? 'rgba(156,29,38,0.2)'
+                          : 'var(--surface-muted)',
                       }}
                     >
                       <Icon
@@ -304,7 +304,7 @@ export default function Step1_CampaignDetails() {
                       <p
                         className="text-sm font-semibold leading-tight"
                         style={{
-                          color: isSelected ? 'white' : 'var(--text-primary)',
+                          color: isSelected ? 'var(--accent-primary)' : 'var(--text-primary)',
                         }}
                       >
                         {ct.label}
@@ -341,7 +341,7 @@ export default function Step1_CampaignDetails() {
           style={{ borderColor: 'var(--border)' }}
         >
           <Calendar className="h-4 w-4" style={{ color: 'var(--accent-primary)' }} />
-          <h2 className="text-sm font-semibold text-white">
+          <h2 className="text-sm font-semibold text-foreground">
             Campaign Period{' '}
             <span style={{ color: 'var(--accent-danger)' }}>*</span>
           </h2>
@@ -352,7 +352,7 @@ export default function Step1_CampaignDetails() {
           <div className="space-y-1.5">
             <Label
               htmlFor={`${formId}-start`}
-              className="text-sm font-medium text-white"
+              className="text-sm font-medium text-foreground"
             >
               Start Date
             </Label>
@@ -370,14 +370,14 @@ export default function Step1_CampaignDetails() {
               }}
               className={cn(
                 'flex h-9 w-full rounded-lg border px-3 py-1 text-sm outline-none transition-colors',
-                'focus:ring-1 focus:ring-indigo-500/50',
+                'focus:ring-1 focus:ring-[rgba(156,29,38,0.45)]',
                 errors.startDate && 'ring-1 ring-destructive border-destructive'
               )}
               style={{
                 borderColor: 'var(--border)',
                 backgroundColor: 'transparent',
                 color: 'var(--text-primary)',
-                colorScheme: 'dark',
+                colorScheme: 'light',
               }}
             />
             {errors.startDate && (
@@ -395,7 +395,7 @@ export default function Step1_CampaignDetails() {
           <div className="space-y-1.5">
             <Label
               htmlFor={`${formId}-end`}
-              className="text-sm font-medium text-white"
+              className="text-sm font-medium text-foreground"
             >
               End Date
             </Label>
@@ -406,14 +406,14 @@ export default function Step1_CampaignDetails() {
               {...register('endDate')}
               className={cn(
                 'flex h-9 w-full rounded-lg border px-3 py-1 text-sm outline-none transition-colors',
-                'focus:ring-1 focus:ring-indigo-500/50',
+                'focus:ring-1 focus:ring-[rgba(156,29,38,0.45)]',
                 errors.endDate && 'ring-1 ring-destructive border-destructive'
               )}
               style={{
                 borderColor: 'var(--border)',
                 backgroundColor: 'transparent',
                 color: 'var(--text-primary)',
-                colorScheme: 'dark',
+                colorScheme: 'light',
               }}
             />
             {errors.endDate && (
@@ -433,8 +433,8 @@ export default function Step1_CampaignDetails() {
           <div
             className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-sm font-medium"
             style={{
-              borderColor: 'rgba(99,102,241,0.35)',
-              backgroundColor: 'rgba(99,102,241,0.08)',
+              borderColor: 'rgba(156,29,38,0.35)',
+              backgroundColor: 'rgba(156,29,38,0.08)',
               color: 'var(--accent-primary)',
             }}
           >
@@ -444,7 +444,7 @@ export default function Step1_CampaignDetails() {
             {format(parseISO(watchedValues.endDate), 'MMM d, yyyy')}
             <span
               className="rounded-full px-2 py-0.5 text-xs font-semibold"
-              style={{ backgroundColor: 'rgba(99,102,241,0.18)' }}
+              style={{ backgroundColor: 'rgba(156,29,38,0.18)' }}
             >
               {durationDays} day{durationDays !== 1 ? 's' : ''}
             </span>

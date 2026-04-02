@@ -42,11 +42,11 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
           className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
           style={{ backgroundColor: 'var(--accent-primary)' }}
         >
-          <Zap className="h-4 w-4 text-white" />
+          <Zap className="h-4 w-4 text-primary-foreground" />
         </div>
         {!collapsed && (
           <div className="overflow-hidden">
-            <p className="text-sm font-display font-bold text-white leading-tight">
+            <p className="text-sm font-display font-bold text-foreground leading-tight">
               Campaign
             </p>
             <p className="text-xs" style={{ color: 'var(--accent-primary)' }}>
@@ -83,7 +83,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
         <button
           onClick={onToggle}
           className={cn(
-            'w-full flex items-center rounded-lg px-3 py-2 text-sm transition-all duration-150 hover:bg-white/10',
+            'w-full flex items-center rounded-lg px-3 py-2 text-sm transition-all duration-150 hover:bg-black/[0.06]',
             collapsed && 'justify-center px-2'
           )}
           style={{ color: 'var(--text-secondary)' }}

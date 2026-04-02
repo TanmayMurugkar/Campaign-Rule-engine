@@ -10,7 +10,7 @@ function SettingsPage() {
   return (
     <div className="flex items-center justify-center py-24">
       <div className="card-base p-8 text-center max-w-md">
-        <h2 className="text-lg font-display font-semibold text-white mb-2">Settings</h2>
+        <h2 className="text-lg font-display font-semibold text-foreground mb-2">Settings</h2>
         <p style={{ color: 'var(--text-secondary)' }} className="text-sm">
           Field parameter and hierarchy configuration — coming soon
         </p>
@@ -23,7 +23,7 @@ function NotFoundPage() {
   return (
     <div className="flex items-center justify-center py-24">
       <div className="card-base p-8 text-center max-w-md">
-        <h2 className="text-4xl font-display font-bold text-white mb-2">404</h2>
+        <h2 className="text-4xl font-display font-bold text-foreground mb-2">404</h2>
         <p style={{ color: 'var(--text-secondary)' }} className="text-sm mb-4">
           Page not found
         </p>

@@ -86,7 +86,7 @@ export default function HierarchySelector() {
       >
         <div className="flex items-center gap-2">
           <Layers className="h-4 w-4" style={{ color: 'var(--accent-primary)' }} />
-          <h3 className="text-sm font-semibold text-white">Hierarchy Selector</h3>
+          <h3 className="text-sm font-semibold text-foreground">Hierarchy Selector</h3>
         </div>
         <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>
           {summary}
@@ -96,11 +96,11 @@ export default function HierarchySelector() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="rounded-xl border p-4" style={{ borderColor: 'var(--border)' }}>
           <div className="flex items-center justify-between mb-3">
-            <p className="text-sm font-semibold text-white">Channels</p>
+            <p className="text-sm font-semibold text-foreground">Channels</p>
             <button
               type="button"
               className={cn(
-                'inline-flex items-center gap-2 rounded-lg border px-2.5 py-1 text-xs transition-colors hover:bg-white/5'
+                'inline-flex items-center gap-2 rounded-lg border px-2.5 py-1 text-xs transition-colors hover:bg-black/[0.04]'
               )}
               style={{ borderColor: 'var(--border)', color: 'var(--text-secondary)' }}
               onClick={() =>
@@ -129,7 +129,7 @@ export default function HierarchySelector() {
                   }
                   className={cn(
                     'w-full flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors',
-                    checked ? 'bg-white/5' : 'hover:bg-white/5'
+                    checked ? 'bg-stone-100' : 'hover:bg-black/[0.04]'
                   )}
                 >
                   <span style={{ color: checked ? 'var(--text-primary)' : 'var(--text-secondary)' }}>
@@ -144,7 +144,7 @@ export default function HierarchySelector() {
 
         <div className="rounded-xl border p-4" style={{ borderColor: 'var(--border)' }}>
           <div className="flex items-center justify-between mb-3">
-            <p className="text-sm font-semibold text-white">Sub Channels</p>
+            <p className="text-sm font-semibold text-foreground">Sub Channels</p>
             <button
               type="button"
               disabled={availableSubChannels.length === 0}
@@ -188,7 +188,7 @@ export default function HierarchySelector() {
                     }
                     className={cn(
                       'w-full flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors',
-                      checked ? 'bg-white/5' : 'hover:bg-white/5'
+                      checked ? 'bg-stone-100' : 'hover:bg-black/[0.04]'
                     )}
                   >
                     <span style={{ color: checked ? 'var(--text-primary)' : 'var(--text-secondary)' }}>
@@ -204,10 +204,10 @@ export default function HierarchySelector() {
 
         <div className="rounded-xl border p-4" style={{ borderColor: 'var(--border)' }}>
           <div className="flex items-center justify-between mb-3">
-            <p className="text-sm font-semibold text-white">Designations</p>
+            <p className="text-sm font-semibold text-foreground">Designations</p>
             <button
               type="button"
-              className="inline-flex items-center gap-2 rounded-lg border px-2.5 py-1 text-xs transition-colors hover:bg-white/5"
+              className="inline-flex items-center gap-2 rounded-lg border px-2.5 py-1 text-xs transition-colors hover:bg-black/[0.04]"
               style={{ borderColor: 'var(--border)', color: 'var(--text-secondary)' }}
               onClick={() =>
                 commit({
@@ -235,7 +235,7 @@ export default function HierarchySelector() {
                   }
                   className={cn(
                     'w-full flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors',
-                    checked ? 'bg-white/5' : 'hover:bg-white/5'
+                    checked ? 'bg-stone-100' : 'hover:bg-black/[0.04]'
                   )}
                 >
                   <span style={{ color: checked ? 'var(--text-primary)' : 'var(--text-secondary)' }}>

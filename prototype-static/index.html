@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campaign Rule Engine — Prototype</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                maroon: '#9c1d26',
+                gold: '#c9a227',
+                panel: '#181416',
+                card: '#221c1e',
+                deep: '#0f0c0d',
+              },
+            },
+            fontFamily: {
+              display: ['DM Sans', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="prototype-body font-sans antialiased">
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside
+        class="w-60 flex-shrink-0 border-r border-[#342b2e] bg-brand-panel flex flex-col"
+      >
+        <div class="flex items-center gap-3 px-4 py-4 border-b border-[#342b2e] min-h-[60px]">
+          <div
+            class="w-8 h-8 rounded-lg bg-brand-maroon flex items-center justify-center text-white text-sm font-bold"
+          >
+            C
+          </div>
+          <div>
+            <p class="text-sm font-display font-bold text-white leading-tight">Campaign</p>
+            <p class="text-xs text-brand-maroon">Rule Engine</p>
+          </div>
+        </div>
+        <nav class="flex-1 px-2 py-3 space-y-1">
+          <button
+            type="button"
+            data-nav="dashboard"
+            class="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-left transition-colors hover:bg-[rgba(156,29,38,0.12)] text-[#a89e9a]"
+          >
+            <span class="text-lg leading-none">▣</span>
+            Dashboard
+          </button>
+          <button
+            type="button"
+            data-nav="campaigns"
+            class="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-left transition-colors hover:bg-[rgba(156,29,38,0.12)] text-[#a89e9a]"
+          >
+            <span class="text-lg leading-none">☰</span>
+            Campaigns
+          </button>
+          <button
+            type="button"
+            data-nav="wizard"
+            class="w-full flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-left transition-colors hover:bg-[rgba(156,29,38,0.12)] text-[#a89e9a]"
+          >
+            <span class="text-lg leading-none">+</span>
+            Create Campaign
+          </button>
+        </nav>
+        <div class="p-3 border-t border-[#342b2e] text-xs text-[#a89e9a]">
+          Static prototype — no server required
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="flex-1 overflow-auto p-6 lg:p-8">
+        <!-- Dashboard -->
+        <section id="view-dashboard" class="space-y-8 max-w-6xl">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h1 class="text-2xl font-display font-bold text-white">Dashboard</h1>
+              <p class="text-sm mt-1 text-[#a89e9a]">Campaign Rule Engine — Overview</p>
+            </div>
+            <button
+              type="button"
+              data-nav="wizard"
+              class="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white bg-brand-maroon hover:opacity-95 transition-opacity"
+            >
+              + Create Campaign
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="rounded-xl border border-[#342b2e] bg-brand-card p-5">
+              <p class="text-xs text-[#a89e9a]">Active Campaigns</p>
+              <p class="text-2xl font-bold text-amber-400 mt-1">3</p>
+            </div>
+            <div class="rounded-xl border border-[#342b2e] bg-brand-card p-5">
+              <p class="text-xs text-[#a89e9a]">Drafts</p>
+              <p class="text-2xl font-bold text-rose-400 mt-1">2</p>
+            </div>
+            <div class="rounded-xl border border-[#342b2e] bg-brand-card p-5">
+              <p class="text-xs text-[#a89e9a]">Agents (sample)</p>
+              <p class="text-2xl font-bold text-stone-300 mt-1">1,240</p>
+            </div>
+            <div class="rounded-xl border border-[#342b2e] bg-brand-card p-5">
+              <p class="text-xs text-[#a89e9a]">Expiring this week</p>
+              <p class="text-2xl font-bold text-amber-400 mt-1">1</p>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-[#342b2e] bg-brand-card overflow-hidden">
+            <div class="px-5 py-3 border-b border-[#342b2e] text-sm font-semibold text-white">
+              Recent activity
+            </div>
+            <ul class="divide-y divide-[#342b2e] text-sm">
+              <li class="px-5 py-3 flex justify-between text-[#a89e9a]">
+                <span>Q4 Points Push — updated</span>
+                <span class="text-xs">Today</span>
+              </li>
+              <li class="px-5 py-3 flex justify-between text-[#a89e9a]">
+                <span>DSA Incentive — created</span>
+                <span class="text-xs">Yesterday</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Campaigns list -->
+        <section id="view-campaigns" class="hidden space-y-6 max-w-6xl">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h1 class="text-2xl font-display font-bold text-white">Campaigns</h1>
+              <p class="text-sm mt-1 text-[#a89e9a]">Manage and open campaigns</p>
+            </div>
+            <button
+              type="button"
+              data-nav="wizard"
+              class="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white bg-brand-maroon"
+            >
+              + New campaign
+            </button>
+          </div>
+
+          <div class="rounded-xl border border-[#342b2e] overflow-hidden bg-brand-card">
+            <table class="w-full text-sm text-left">
+              <thead class="bg-[#1a1517] text-[#a89e9a] text-xs uppercase tracking-wide">
+                <tr>
+                  <th class="px-4 py-3">Name</th>
+                  <th class="px-4 py-3">Type</th>
+                  <th class="px-4 py-3">Status</th>
+                  <th class="px-4 py-3">Period</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#342b2e] text-[#faf7f5]">
+                <tr class="hover:bg-white/5">
+                  <td class="px-4 py-3 font-medium">Q4 Points Push</td>
+                  <td class="px-4 py-3">Points</td>
+                  <td class="px-4 py-3">
+                    <span class="rounded-full px-2 py-0.5 text-xs bg-amber-500/20 text-amber-300"
+                      >Active</span
+                    >
+                  </td>
+                  <td class="px-4 py-3 text-[#a89e9a]">Oct 1 — Dec 31</td>
+                </tr>
+                <tr class="hover:bg-white/5">
+                  <td class="px-4 py-3 font-medium">DSA Incentive</td>
+                  <td class="px-4 py-3">Cash</td>
+                  <td class="px-4 py-3">
+                    <span class="rounded-full px-2 py-0.5 text-xs bg-white/10 text-[#a89e9a]"
+                      >Draft</span
+                    >
+                  </td>
+                  <td class="px-4 py-3 text-[#a89e9a]">—</td>
+                </tr>
+                <tr class="hover:bg-white/5">
+                  <td class="px-4 py-3 font-medium">Wealth Referral</td>
+                  <td class="px-4 py-3">Mixed</td>
+                  <td class="px-4 py-3">
+                    <span class="rounded-full px-2 py-0.5 text-xs bg-amber-500/20 text-amber-300"
+                      >Active</span
+                    >
+                  </td>
+                  <td class="px-4 py-3 text-[#a89e9a]">Jan 1 — Mar 31</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Wizard -->
+        <section id="view-wizard" class="hidden space-y-6 max-w-4xl">
+          <div class="flex items-center justify-between">
+            <div>
+              <h1 class="text-2xl font-display font-bold text-white">Create Campaign</h1>
+              <p id="wizard-step-label" class="text-sm mt-1 text-[#a89e9a]">Step 1 of 5</p>
+            </div>
+            <button
+              type="button"
+              id="wizard-btn-discard"
+              class="text-sm text-[#a89e9a] hover:text-white px-3 py-1 rounded-lg hover:bg-white/10"
+            >
+              Discard
+            </button>
+          </div>
+
+          <!-- Step indicators -->
+          <div class="rounded-xl border border-[#342b2e] bg-brand-card px-4 py-4">
+            <div class="flex flex-wrap items-center gap-2 justify-between">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span
+                  data-wizard-dot="1"
+                  class="w-8 h-8 rounded-full border flex items-center justify-center text-xs font-semibold"
+                  >1</span
+                >
+                <span class="hidden sm:inline text-xs text-[#a89e9a]">Details</span>
+                <span class="text-[#342b2e] hidden sm:inline">→</span>
+                <span
+                  data-wizard-dot="2"
+                  class="w-8 h-8 rounded-full border flex items-center justify-center text-xs font-semibold"
+                  >2</span
+                >
+                <span class="hidden sm:inline text-xs text-[#a89e9a]">Targeting</span>
+                <span class="text-[#342b2e] hidden sm:inline">→</span>
+                <span
+                  data-wizard-dot="3"
+                  class="w-8 h-8 rounded-full border flex items-center justify-center text-xs font-semibold"
+                  >3</span
+                >
+                <span class="hidden sm:inline text-xs text-[#a89e9a]">Rules</span>
+                <span class="text-[#342b2e] hidden sm:inline">→</span>
+                <span
+                  data-wizard-dot="4"
+                  class="w-8 h-8 rounded-full border flex items-center justify-center text-xs font-semibold"
+                  >4</span
+                >
+                <span class="hidden sm:inline text-xs text-[#a89e9a]">Payout</span>
+                <span class="text-[#342b2e] hidden sm:inline">→</span>
+                <span
+                  data-wizard-dot="5"
+                  class="w-8 h-8 rounded-full border flex items-center justify-center text-xs font-semibold"
+                  >5</span
+                >
+                <span class="hidden sm:inline text-xs text-[#a89e9a]">Review</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-[#342b2e] bg-brand-card p-6 min-h-[280px]">
+            <div id="wizard-step-1" class="space-y-4">
+              <h2 class="text-lg font-semibold text-white">Campaign details</h2>
+              <p class="text-sm text-[#a89e9a]">Name, type, and dates for your campaign.</p>
+              <div class="space-y-3 max-w-md">
+                <label class="block text-xs text-[#a89e9a]">Campaign name</label>
+                <input
+                  type="text"
+                  class="w-full rounded-lg border border-[#342b2e] bg-[#0f0c0d] px-3 py-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-[#9c1d26]"
+                  placeholder="e.g. Q1 Branch Incentive"
+                />
+                <label class="block text-xs text-[#a89e9a] pt-2">Type</label>
+                <select
+                  class="w-full rounded-lg border border-[#342b2e] bg-[#0f0c0d] px-3 py-2 text-sm text-white"
+                >
+                  <option>Points</option>
+                  <option>Cash</option>
+                  <option>Voucher</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="wizard-step-2" class="hidden space-y-4">
+              <h2 class="text-lg font-semibold text-white">Targeting</h2>
+              <p class="text-sm text-[#a89e9a]">Who should this campaign apply to?</p>
+              <div class="flex gap-3">
+                <label
+                  class="flex-1 cursor-pointer rounded-lg border border-[#9c1d26] bg-[rgba(156,29,38,0.08)] p-4"
+                >
+                  <input type="radio" name="tgt" checked class="sr-only" />
+                  <span class="text-sm font-medium text-white">Hierarchy</span>
+                  <p class="text-xs text-[#a89e9a] mt-1">Channel, sub-channel, designation</p>
+                </label>
+                <label class="flex-1 cursor-pointer rounded-lg border border-[#342b2e] p-4 hover:border-[#9c1d26]/50">
+                  <input type="radio" name="tgt" class="sr-only" />
+                  <span class="text-sm font-medium text-white">Excel upload</span>
+                  <p class="text-xs text-[#a89e9a] mt-1">Upload agent list</p>
+                </label>
+              </div>
+            </div>
+
+            <div id="wizard-step-3" class="hidden space-y-4">
+              <h2 class="text-lg font-semibold text-white">Qualifying rules</h2>
+              <p class="text-sm text-[#a89e9a]">Prototype: rule builder would go here.</p>
+              <div
+                class="rounded-lg border border-dashed border-[#342b2e] p-8 text-center text-sm text-[#a89e9a]"
+              >
+                + Add rule group (mock)
+              </div>
+            </div>
+
+            <div id="wizard-step-4" class="hidden space-y-4">
+              <h2 class="text-lg font-semibold text-white">Payout structure</h2>
+              <p class="text-sm text-[#a89e9a]">Prototype: KPI blocks and formulas would go here.</p>
+              <div class="rounded-lg border border-[#342b2e] p-4 text-sm text-[#a89e9a]">
+                Sample: Transaction-based payout · 2 KPIs
+              </div>
+            </div>
+
+            <div id="wizard-step-5" class="hidden space-y-4">
+              <h2 class="text-lg font-semibold text-white">Review & submit</h2>
+              <p class="text-sm text-[#a89e9a]">Checklist and activation (mock).</p>
+              <ul class="text-sm space-y-2 text-[#faf7f5]">
+                <li>✓ Details complete</li>
+                <li>✓ Targeting selected</li>
+                <li class="text-[#a89e9a]">○ Rules configured (prototype)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="sticky bottom-0 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#342b2e] bg-brand-panel px-6 py-4"
+          >
+            <button
+              type="button"
+              id="wizard-btn-back"
+              class="rounded-lg border border-[#342b2e] px-4 py-2 text-sm text-white hover:bg-white/5"
+            >
+              ← Back
+            </button>
+            <div class="flex gap-3">
+              <button
+                type="button"
+                id="wizard-btn-next"
+                class="rounded-lg px-4 py-2 text-sm font-medium text-white bg-brand-maroon"
+              >
+                Next →
+              </button>
+              <button
+                type="button"
+                id="wizard-btn-activate"
+                class="hidden rounded-lg px-4 py-2 text-sm font-medium text-white bg-[#c9a227]"
+              >
+                Activate campaign
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

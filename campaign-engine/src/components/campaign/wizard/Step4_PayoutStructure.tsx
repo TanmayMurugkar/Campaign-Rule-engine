@@ -9,7 +9,7 @@ export default function Step4_PayoutStructure() {
         <div className="flex items-center gap-2">
           <Coins className="h-5 w-5" style={{ color: 'var(--accent-primary)' }} />
           <div>
-            <h2 className="text-lg font-display font-semibold text-white">Payout Structure</h2>
+            <h2 className="text-lg font-display font-semibold text-foreground">Payout Structure</h2>
             <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
               Configure payout logic for this rule version.
             </p>

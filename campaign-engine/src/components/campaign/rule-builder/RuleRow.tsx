@@ -39,7 +39,7 @@ export default function RuleRow({ condition, onChange, onRemove }: RuleRowProps)
   return (
     <div
       className="flex flex-wrap items-start gap-3 rounded-lg border p-3"
-      style={{ borderColor: 'var(--border)', backgroundColor: 'rgba(255,255,255,0.02)' }}
+      style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface-subtle)' }}
     >
       <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 flex-1 min-w-0">
         <div className="sm:col-span-3">

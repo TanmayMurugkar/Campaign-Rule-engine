@@ -86,7 +86,7 @@ export default function AddVersionModal({
 
         <div className="space-y-4">
           <div>
-            <label className="text-sm font-medium text-white">Version label</label>
+            <label className="text-sm font-medium text-foreground">Version label</label>
             <input
               className="mt-1 h-9 w-full rounded-lg border px-3 text-sm bg-transparent outline-none focus:ring-1"
               style={{ borderColor: 'var(--border)', color: 'var(--text-primary)' }}
@@ -98,11 +98,11 @@ export default function AddVersionModal({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="text-sm font-medium text-white">Start date</label>
+              <label className="text-sm font-medium text-foreground">Start date</label>
               <input
                 type="date"
                 className="mt-1 h-9 w-full rounded-lg border px-3 text-sm bg-transparent outline-none focus:ring-1"
-                style={{ borderColor: 'var(--border)', color: 'var(--text-primary)', colorScheme: 'dark' }}
+                style={{ borderColor: 'var(--border)', color: 'var(--text-primary)', colorScheme: 'light' }}
                 value={startDate}
                 min={campaignStart}
                 max={campaignEnd}
@@ -110,11 +110,11 @@ export default function AddVersionModal({
               />
             </div>
             <div>
-              <label className="text-sm font-medium text-white">End date</label>
+              <label className="text-sm font-medium text-foreground">End date</label>
               <input
                 type="date"
                 className="mt-1 h-9 w-full rounded-lg border px-3 text-sm bg-transparent outline-none focus:ring-1"
-                style={{ borderColor: 'var(--border)', color: 'var(--text-primary)', colorScheme: 'dark' }}
+                style={{ borderColor: 'var(--border)', color: 'var(--text-primary)', colorScheme: 'light' }}
                 value={endDate}
                 min={startDate || campaignStart}
                 max={campaignEnd}
@@ -124,7 +124,7 @@ export default function AddVersionModal({
           </div>
 
           <div>
-            <label className="text-sm font-medium text-white">Copy from existing (optional)</label>
+            <label className="text-sm font-medium text-foreground">Copy from existing (optional)</label>
             <select
               className="mt-1 h-9 w-full rounded-lg border bg-transparent px-2 text-sm outline-none"
               style={{ borderColor: 'var(--border)', color: 'var(--text-primary)' }}

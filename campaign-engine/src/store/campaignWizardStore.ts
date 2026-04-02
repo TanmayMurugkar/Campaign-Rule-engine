@@ -34,7 +34,7 @@ export const useCampaignWizardStore = create<WizardState>()(
   persist(
     (set) => ({
       currentStep: 1,
-      campaign: initialCampaign,
+      campaign: { ...initialCampaign },
       activeVersionIndex: 0,
       editingCampaignId: null,
 
@@ -61,13 +61,13 @@ export const useCampaignWizardStore = create<WizardState>()(
           const prev = [...(state.campaign.ruleVersions ?? [])];
           const updated = { ...prev[index], ...versionUpdate } as RuleVersion;
           prev[index] = updated;
-          const next = prev.sort(
+          const next = [...prev].sort(
             (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
           );
           const nextIdx = next.findIndex((v) => v.id === updated.id);
           return {
             campaign: { ...state.campaign, ruleVersions: next },
-            activeVersionIndex: nextIdx >= 0 ? nextIdx : state.activeVersionIndex,
+            activeVersionIndex: Math.max(0, nextIdx),
           };
         }),
 
@@ -75,30 +75,36 @@ export const useCampaignWizardStore = create<WizardState>()(
         set((state) => {
           const versions = [...(state.campaign.ruleVersions ?? [])];
           versions.splice(index, 1);
-          const nextActive = Math.max(0, Math.min(state.activeVersionIndex, versions.length - 1));
-          return { campaign: { ...state.campaign, ruleVersions: versions }, activeVersionIndex: nextActive };
+          return {
+            campaign: { ...state.campaign, ruleVersions: versions },
+            activeVersionIndex: Math.min(index, Math.max(0, versions.length - 1)),
+          };
         }),
 
       resetWizard: () =>
         set({
           currentStep: 1,
-          campaign: { ...initialCampaign, ruleVersions: [] },
+          campaign: {
+            ...initialCampaign,
+            ruleVersions: [],
+            targeting: {
+              mode: 'hierarchy',
+              hierarchy: { channels: [], subChannels: [], designations: [] },
+            },
+          },
           activeVersionIndex: 0,
           editingCampaignId: null,
         }),
 
+      setActiveVersionIndex: (index) => set({ activeVersionIndex: index }),
+
       loadCampaignForEdit: (campaign) =>
         set({
           currentStep: 1,
+          campaign: { ...campaign },
           activeVersionIndex: 0,
           editingCampaignId: campaign.id,
-          campaign: {
-            ...campaign,
-            ruleVersions: campaign.ruleVersions ? [...campaign.ruleVersions] : [],
-          },
         }),
-
-      setActiveVersionIndex: (index) => set({ activeVersionIndex: index }),
     }),
     {
       name: 'campaign-wizard-draft',
@@ -106,7 +112,7 @@ export const useCampaignWizardStore = create<WizardState>()(
         currentStep: state.currentStep,
         campaign: state.campaign,
         activeVersionIndex: state.activeVersionIndex,
-        // editingCampaignId is intentionally not persisted (URL is source of truth for edit)
+        editingCampaignId: state.editingCampaignId,
       }),
     }
   )

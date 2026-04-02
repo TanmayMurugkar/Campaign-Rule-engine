@@ -57,7 +57,7 @@ export default function PayoutBuilder() {
     <div className="space-y-6">
       {/* Mode toggle */}
       <div className="rounded-xl border p-4" style={{ borderColor: 'var(--border)' }}>
-        <p className="text-sm font-semibold text-white mb-1">Payout mode</p>
+        <p className="text-sm font-semibold text-foreground mb-1">Payout mode</p>
         <p className="text-xs mb-3" style={{ color: 'var(--text-secondary)' }}>
           Choose how payouts are computed. This is a UI configuration only.
         </p>
@@ -68,20 +68,20 @@ export default function PayoutBuilder() {
             className={cn(
               'rounded-xl border p-4 text-left transition-all',
               mode === 'transaction_based'
-                ? 'shadow-[0_0_0_2px_rgba(99,102,241,0.6)]'
+                ? 'shadow-[0_0_0_2px_rgba(156,29,38,0.6)]'
                 : 'hover:translate-y-[-1px] hover:shadow-lg'
             )}
             style={{
               borderColor: mode === 'transaction_based' ? 'var(--accent-primary)' : 'var(--border)',
-              backgroundColor: mode === 'transaction_based' ? 'rgba(99,102,241,0.08)' : 'transparent',
+              backgroundColor: mode === 'transaction_based' ? 'rgba(156,29,38,0.08)' : 'transparent',
             }}
           >
             <div className="flex items-center gap-3">
-              <div className="rounded-lg p-2" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}>
+              <div className="rounded-lg p-2" style={{ backgroundColor: 'var(--surface-muted)' }}>
                 <Coins className="h-5 w-5" style={{ color: 'var(--accent-primary)' }} />
               </div>
               <div>
-                <p className="text-sm font-semibold text-white">Transaction-Based</p>
+                <p className="text-sm font-semibold text-foreground">Transaction-Based</p>
                 <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
                   Define tiers for each KPI (points/cash per tier).
                 </p>
@@ -109,20 +109,20 @@ export default function PayoutBuilder() {
             className={cn(
               'rounded-xl border p-4 text-left transition-all',
               mode === 'target_based'
-                ? 'shadow-[0_0_0_2px_rgba(99,102,241,0.6)]'
+                ? 'shadow-[0_0_0_2px_rgba(156,29,38,0.6)]'
                 : 'hover:translate-y-[-1px] hover:shadow-lg'
             )}
             style={{
               borderColor: mode === 'target_based' ? 'var(--accent-primary)' : 'var(--border)',
-              backgroundColor: mode === 'target_based' ? 'rgba(99,102,241,0.08)' : 'transparent',
+              backgroundColor: mode === 'target_based' ? 'rgba(156,29,38,0.08)' : 'transparent',
             }}
           >
             <div className="flex items-center gap-3">
-              <div className="rounded-lg p-2" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}>
+              <div className="rounded-lg p-2" style={{ backgroundColor: 'var(--surface-muted)' }}>
                 <Target className="h-5 w-5" style={{ color: 'var(--accent-primary)' }} />
               </div>
               <div>
-                <p className="text-sm font-semibold text-white">Target-Based</p>
+                <p className="text-sm font-semibold text-foreground">Target-Based</p>
                 <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
                   Base KPI + vintage targets + unlock gates for secondary KPIs.
                 </p>
@@ -136,7 +136,7 @@ export default function PayoutBuilder() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-semibold text-white">KPIs</p>
+              <p className="text-sm font-semibold text-foreground">KPIs</p>
               <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
                 Add KPIs and define tiers (points/cash).
               </p>
@@ -177,7 +177,7 @@ export default function PayoutBuilder() {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-semibold text-white">Base KPI</p>
+                <p className="text-sm font-semibold text-foreground">Base KPI</p>
                 <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
                   This KPI gates access to secondary KPIs.
                 </p>
@@ -250,7 +250,7 @@ export default function PayoutBuilder() {
           <div className="rounded-xl border p-4 space-y-3" style={{ borderColor: 'var(--border)' }}>
             <div className="flex items-center gap-2">
               <Link2 className="h-4 w-4" style={{ color: 'var(--accent-primary)' }} />
-              <p className="text-sm font-semibold text-white">Unlock gate</p>
+              <p className="text-sm font-semibold text-foreground">Unlock gate</p>
             </div>
             <p className="text-xs" style={{ color: 'var(--text-secondary)' }}>
               Secondary KPIs can be configured with an unlock condition tied to the base KPI.
@@ -311,7 +311,7 @@ export default function PayoutBuilder() {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-semibold text-white">Secondary KPIs</p>
+                <p className="text-sm font-semibold text-foreground">Secondary KPIs</p>
                 <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
                   Configure payouts unlocked after the base KPI gate.
                 </p>

@@ -12,7 +12,7 @@ export default function ConditionalPayoutEditor({ value, onChange }: Conditional
     <div className="rounded-xl border p-4 space-y-3" style={{ borderColor: 'var(--border)' }}>
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-semibold text-white">KPI Conditions</p>
+          <p className="text-sm font-semibold text-foreground">KPI Conditions</p>
           <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
             Optional gates / fallbacks (UI-only for now).
           </p>
@@ -43,7 +43,7 @@ export default function ConditionalPayoutEditor({ value, onChange }: Conditional
             <div
               key={idx}
               className="flex flex-wrap items-center gap-2 rounded-lg border p-3"
-              style={{ borderColor: 'var(--border)', backgroundColor: 'rgba(255,255,255,0.02)' }}
+              style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface-subtle)' }}
             >
               <select
                 className="h-8 rounded-lg border bg-transparent px-2 text-sm outline-none"

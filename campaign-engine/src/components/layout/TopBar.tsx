@@ -51,7 +51,7 @@ export default function TopBar() {
               />
             )}
             {i === breadcrumbs.length - 1 ? (
-              <span className="font-medium text-white">{crumb.label}</span>
+              <span className="font-medium text-foreground">{crumb.label}</span>
             ) : (
               <Link
                 to={crumb.path}
@@ -68,7 +68,7 @@ export default function TopBar() {
       {/* Right actions */}
       <div className="flex items-center gap-3">
         <button
-          className="relative p-2 rounded-lg hover:bg-white/10 transition-colors"
+          className="relative p-2 rounded-lg hover:bg-black/[0.06] transition-colors"
           style={{ color: 'var(--text-secondary)' }}
           title="Notifications"
         >
@@ -77,7 +77,7 @@ export default function TopBar() {
 
         {/* User avatar placeholder */}
         <button
-          className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-white transition-opacity hover:opacity-80"
+          className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold text-primary-foreground transition-opacity hover:opacity-80"
           style={{ backgroundColor: 'var(--accent-primary)' }}
           title="User menu"
         >

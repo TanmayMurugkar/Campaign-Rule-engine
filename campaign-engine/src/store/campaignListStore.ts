@@ -38,25 +38,10 @@ const defaultFilters: CampaignFilters = {
   dateTo: '',
 };
 
-const STORAGE_KEY = 'campaign-engine.campaigns.v1';
-
-function getInitialCampaigns(): Campaign[] {
-  if (typeof window === 'undefined') return SAMPLE_CAMPAIGNS;
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return SAMPLE_CAMPAIGNS;
-    const parsed = JSON.parse(raw) as unknown;
-    if (!Array.isArray(parsed)) return SAMPLE_CAMPAIGNS;
-    return parsed as Campaign[];
-  } catch {
-    return SAMPLE_CAMPAIGNS;
-  }
-}
-
 export const useCampaignListStore = create<CampaignListState>()(
   persist(
     (set, get) => ({
-      campaigns: getInitialCampaigns(),
+      campaigns: SAMPLE_CAMPAIGNS,
       filters: defaultFilters,
       page: 1,
       pageSize: 10,
@@ -108,15 +93,13 @@ export const useCampaignListStore = create<CampaignListState>()(
       setLoading: (loading) => set({ isLoading: loading }),
     }),
     {
-      name: STORAGE_KEY,
-      partialize: (state) => ({
-        campaigns: state.campaigns,
-      }),
+      name: 'campaign-engine.campaigns.v1',
+      partialize: (state) => ({ campaigns: state.campaigns }),
     }
   )
 );
 
-// Derived selector: filtered + paginated campaigns
+/** Pure selector: filter campaigns by current filter state */
 export function getFilteredCampaigns(
   campaigns: Campaign[],
   filters: CampaignFilters

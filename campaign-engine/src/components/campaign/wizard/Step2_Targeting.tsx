@@ -50,7 +50,7 @@ export default function Step2_Targeting() {
           <div>
             <div className="flex items-center gap-2">
               <Users className="h-4 w-4" style={{ color: 'var(--accent-primary)' }} />
-              <h2 className="text-sm font-semibold text-white">Agent Targeting</h2>
+              <h2 className="text-sm font-semibold text-foreground">Agent Targeting</h2>
             </div>
             <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
               Choose how you want to target agents for this campaign.
@@ -60,7 +60,7 @@ export default function Step2_Targeting() {
             className="rounded-full border px-3 py-1.5 text-xs font-medium"
             style={{
               borderColor: 'var(--border)',
-              backgroundColor: 'rgba(255,255,255,0.03)',
+              backgroundColor: 'var(--surface-subtle)',
               color: 'var(--text-secondary)',
             }}
             title="Current targeting summary"
@@ -88,12 +88,12 @@ export default function Step2_Targeting() {
                 className={cn(
                   'rounded-xl border p-4 text-left transition-all duration-150',
                   selected
-                    ? 'shadow-[0_0_0_2px_rgba(99,102,241,0.6)]'
+                    ? 'shadow-[0_0_0_2px_rgba(156,29,38,0.6)]'
                     : 'hover:translate-y-[-1px] hover:shadow-lg'
                 )}
                 style={{
                   borderColor: selected ? 'var(--accent-primary)' : 'var(--border)',
-                  backgroundColor: selected ? 'rgba(99,102,241,0.08)' : 'transparent',
+                  backgroundColor: selected ? 'rgba(156,29,38,0.08)' : 'transparent',
                 }}
               >
                 <div className="flex items-center gap-3">
@@ -101,8 +101,8 @@ export default function Step2_Targeting() {
                     className="rounded-lg p-2"
                     style={{
                       backgroundColor: selected
-                        ? 'rgba(99,102,241,0.2)'
-                        : 'rgba(255,255,255,0.06)',
+                        ? 'rgba(156,29,38,0.2)'
+                        : 'var(--surface-muted)',
                     }}
                   >
                     <Icon
@@ -113,7 +113,7 @@ export default function Step2_Targeting() {
                     />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold text-white">{m.label}</p>
+                    <p className="text-sm font-semibold text-foreground">{m.label}</p>
                     <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
                       {m.description}
                     </p>

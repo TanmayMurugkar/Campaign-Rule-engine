@@ -34,7 +34,7 @@ export default function WizardProgress({
                 type="button"
                 className={cn(
                   'group flex items-center gap-3 w-full text-left rounded-lg px-2 py-2 transition-colors',
-                  isClickable ? 'hover:bg-white/5' : 'cursor-default'
+                  isClickable ? 'hover:bg-black/[0.04]' : 'cursor-default'
                 )}
                 onClick={() => (isClickable ? onStepClick?.(stepNumber) : undefined)}
                 aria-current={isActive ? 'step' : undefined}
@@ -48,9 +48,9 @@ export default function WizardProgress({
                   )}
                   style={{
                     backgroundColor: isCompleted
-                      ? 'rgba(16,185,129,0.15)'
+                      ? 'rgba(201,162,39,0.15)'
                       : isActive
-                        ? 'rgba(99,102,241,0.15)'
+                        ? 'rgba(156,29,38,0.15)'
                         : 'transparent',
                     borderColor: isCompleted || isActive ? 'transparent' : 'var(--border)',
                     color: isCompleted
@@ -67,7 +67,7 @@ export default function WizardProgress({
                   <div
                     className={cn(
                       'text-sm font-medium truncate',
-                      isActive ? 'text-white' : 'text-white/80'
+                      isActive ? 'text-foreground' : 'text-foreground/80'
                     )}
                   >
                     {step.label}
@@ -84,7 +84,7 @@ export default function WizardProgress({
                     className="h-[2px] rounded-full"
                     style={{
                       backgroundColor:
-                        stepNumber < currentStep ? 'rgba(16,185,129,0.35)' : 'var(--border)',
+                        stepNumber < currentStep ? 'rgba(201,162,39,0.35)' : 'var(--border)',
                     }}
                   />
                 </div>

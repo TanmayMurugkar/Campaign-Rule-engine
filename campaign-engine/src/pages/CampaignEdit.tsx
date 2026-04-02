@@ -54,7 +54,7 @@ export default function CampaignEdit() {
     <div className="space-y-6">
       <Link
         to={`/campaigns/${id}`}
-        className="inline-flex items-center gap-2 text-sm rounded-lg px-1 py-1 -ml-1 hover:bg-white/10 transition-colors"
+        className="inline-flex items-center gap-2 text-sm rounded-lg px-1 py-1 -ml-1 hover:bg-black/[0.06] transition-colors"
         style={{ color: 'var(--text-secondary)' }}
       >
         <ArrowLeft className="h-4 w-4" />

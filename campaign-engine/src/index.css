@@ -4,39 +4,41 @@
 
 @layer base {
   :root {
-    /* Design System from plan — dark theme */
-    --bg-primary: #0F1117;
-    --bg-secondary: #1A1D27;
-    --bg-card: #1E213D;
-    --accent-primary: #6366F1;      /* Indigo */
-    --accent-secondary: #10B981;    /* Emerald (success/active) */
-    --accent-warning: #F59E0B;
-    --accent-danger: #EF4444;
-    --text-primary: #F1F5F9;
-    --text-secondary: #94A3B8;
-    --border: #2D3348;
-    --border-focus: #6366F1;
+    /* Light theme — IDFC-inspired maroon + gold on warm neutrals */
+    --bg-primary: #faf9f8;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --surface-subtle: rgba(28, 25, 23, 0.04);
+    --surface-muted: rgba(28, 25, 23, 0.07);
+    --accent-primary: #9c1d26;
+    --accent-secondary: #b45309;
+    --accent-warning: #b45309;
+    --accent-danger: #dc2626;
+    --text-primary: #1c1917;
+    --text-secondary: #57534e;
+    --border: #e7e5e4;
+    --border-focus: #9c1d26;
 
-    /* shadcn/ui CSS variables — mapped to dark design system */
-    --background: 220 20% 7%;
-    --foreground: 213 31% 95%;
-    --card: 230 22% 18%;
-    --card-foreground: 213 31% 95%;
-    --popover: 230 22% 14%;
-    --popover-foreground: 213 31% 95%;
-    --primary: 239 84% 67%;
+    /* shadcn/ui — light */
+    --background: 40 20% 98%;
+    --foreground: 24 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+    --primary: 356 69% 36%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 230 22% 18%;
-    --secondary-foreground: 213 31% 95%;
-    --muted: 230 18% 22%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 230 22% 22%;
-    --accent-foreground: 213 31% 95%;
+    --secondary: 40 10% 96%;
+    --secondary-foreground: 24 10% 10%;
+    --muted: 40 10% 94%;
+    --muted-foreground: 25 6% 45%;
+    --accent: 40 12% 93%;
+    --accent-foreground: 24 10% 10%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 225 20% 24%;
-    --input: 225 20% 24%;
-    --ring: 239 84% 67%;
+    --border: 20 6% 90%;
+    --input: 20 6% 90%;
+    --ring: 356 65% 42%;
     --radius: 0.75rem;
   }
 }
@@ -69,37 +71,38 @@
     @apply rounded-xl border bg-card text-card-foreground shadow-sm;
     border-color: var(--border);
     background-color: var(--bg-card);
+    box-shadow: 0 1px 2px rgba(28, 25, 23, 0.05);
   }
 
   /* Status badges */
   .badge-draft {
     @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
-    background-color: rgba(148, 163, 184, 0.15);
-    color: #94A3B8;
+    background-color: rgba(120, 113, 108, 0.12);
+    color: var(--text-secondary);
   }
 
   .badge-active {
     @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
-    background-color: rgba(16, 185, 129, 0.15);
-    color: #10B981;
+    background-color: rgba(180, 83, 9, 0.12);
+    color: #92400e;
   }
 
   .badge-paused {
     @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
-    background-color: rgba(245, 158, 11, 0.15);
-    color: #F59E0B;
+    background-color: rgba(217, 119, 6, 0.12);
+    color: #b45309;
   }
 
   .badge-expired {
     @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
-    background-color: rgba(239, 68, 68, 0.15);
-    color: #EF4444;
+    background-color: rgba(220, 38, 38, 0.1);
+    color: #b91c1c;
   }
 
   /* Rule preview monospace block */
   .rule-preview {
     @apply rounded-lg p-4 font-mono text-sm;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
     color: var(--text-secondary);
     border: 1px solid var(--border);
   }
@@ -111,31 +114,31 @@
   }
 
   .nav-item:hover {
-    background-color: rgba(99, 102, 241, 0.1);
+    background-color: rgba(156, 29, 38, 0.08);
     color: var(--text-primary);
   }
 
   .nav-item.active {
-    background-color: rgba(99, 102, 241, 0.15);
-    color: #6366F1;
+    background-color: rgba(156, 29, 38, 0.12);
+    color: #9c1d26;
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar — light */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: #d6d3d1;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6366F1;
+  background: var(--accent-primary);
 }

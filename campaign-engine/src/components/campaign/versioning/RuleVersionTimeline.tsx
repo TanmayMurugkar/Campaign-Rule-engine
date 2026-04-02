@@ -52,7 +52,7 @@ export default function RuleVersionTimeline() {
     <div className="space-y-4">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-sm font-semibold text-white">Rule versions</p>
+          <p className="text-sm font-semibold text-foreground">Rule versions</p>
           <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
             Split your campaign period into phases with different rules/payouts.
           </p>
@@ -75,7 +75,7 @@ export default function RuleVersionTimeline() {
               <span>{campaign.startDate}</span>
               <span>{campaign.endDate}</span>
             </div>
-            <div className="relative h-10 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid var(--border)' }}>
+            <div className="relative h-10 rounded-lg" style={{ backgroundColor: 'var(--surface-subtle)', border: '1px solid var(--border)' }}>
               {versions.map((v) => {
                 const vStart = new Date(v.startDate);
                 const vEnd = new Date(v.endDate);
@@ -97,9 +97,9 @@ export default function RuleVersionTimeline() {
                     style={{
                       left: `${left}%`,
                       width: `${width}%`,
-                      backgroundColor: isActive ? 'rgba(99,102,241,0.25)' : 'rgba(99,102,241,0.12)',
-                      borderColor: isActive ? 'rgba(99,102,241,0.7)' : 'rgba(99,102,241,0.35)',
-                      color: 'white',
+                      backgroundColor: isActive ? 'rgba(156,29,38,0.25)' : 'rgba(156,29,38,0.12)',
+                      borderColor: isActive ? 'rgba(156,29,38,0.75)' : 'rgba(156,29,38,0.35)',
+                      color: 'var(--text-primary)',
                     }}
                     title={`${v.label}: ${v.startDate} to ${v.endDate}`}
                   >
@@ -113,7 +113,7 @@ export default function RuleVersionTimeline() {
               <div className="mt-3 flex items-start gap-2 text-xs" style={{ color: 'var(--accent-warning)' }}>
                 <AlertTriangle className="h-4 w-4 mt-0.5" />
                 <div>
-                  <div className="font-semibold text-white">Coverage gaps</div>
+                  <div className="font-semibold text-foreground">Coverage gaps</div>
                   <div style={{ color: 'var(--text-secondary)' }}>{gaps.join(' · ')}</div>
                 </div>
               </div>
@@ -123,7 +123,7 @@ export default function RuleVersionTimeline() {
               <div className="mt-3 flex items-start gap-2 text-xs" style={{ color: 'var(--accent-danger)' }}>
                 <AlertTriangle className="h-4 w-4 mt-0.5" />
                 <div>
-                  <div className="font-semibold text-white">Overlap</div>
+                  <div className="font-semibold text-foreground">Overlap</div>
                   <div style={{ color: 'var(--text-secondary)' }}>{overlap}</div>
                 </div>
               </div>

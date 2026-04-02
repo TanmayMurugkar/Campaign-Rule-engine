@@ -80,12 +80,12 @@ export default function ExcelUploader() {
       >
         <div className="flex items-center gap-2">
           <FileSpreadsheet className="h-4 w-4" style={{ color: 'var(--accent-primary)' }} />
-          <h3 className="text-sm font-semibold text-white">Upload Agents (Excel/CSV)</h3>
+          <h3 className="text-sm font-semibold text-foreground">Upload Agents (Excel/CSV)</h3>
         </div>
         <button
           type="button"
           onClick={downloadTemplate}
-          className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-xs hover:bg-white/5 transition-colors"
+          className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-xs hover:bg-black/[0.04] transition-colors"
           style={{ borderColor: 'var(--border)', color: 'var(--text-secondary)' }}
         >
           <Download className="h-3.5 w-3.5" />
@@ -97,13 +97,13 @@ export default function ExcelUploader() {
         {...getRootProps()}
         className={cn(
           'rounded-xl border border-dashed p-6 text-center transition-colors cursor-pointer',
-          isDragActive && 'bg-white/5'
+          isDragActive && 'bg-stone-100'
         )}
-        style={{ borderColor: 'rgba(99,102,241,0.35)' }}
+        style={{ borderColor: 'rgba(156,29,38,0.35)' }}
       >
         <input {...getInputProps()} />
         <UploadCloud className="h-8 w-8 mx-auto mb-3" style={{ color: 'var(--accent-primary)' }} />
-        <p className="text-sm font-medium text-white">
+        <p className="text-sm font-medium text-foreground">
           {isDragActive ? 'Drop the file here…' : 'Drag & drop a .xlsx/.csv file, or click to select'}
         </p>
         <p className="text-xs mt-1" style={{ color: 'var(--text-secondary)' }}>
@@ -128,7 +128,7 @@ export default function ExcelUploader() {
         >
           <div className="flex items-center gap-2 mb-2">
             <AlertTriangle className="h-4 w-4" style={{ color: 'var(--accent-warning)' }} />
-            <p className="text-sm font-semibold text-white">Upload issues</p>
+            <p className="text-sm font-semibold text-foreground">Upload issues</p>
           </div>
           <ul className="text-xs space-y-1" style={{ color: 'var(--text-secondary)' }}>
             {errors.slice(0, 8).map((e, idx) => (
@@ -142,7 +142,7 @@ export default function ExcelUploader() {
       {/* Preview */}
       <div className="rounded-xl border overflow-hidden" style={{ borderColor: 'var(--border)' }}>
         <div className="px-4 py-3 border-b" style={{ borderColor: 'var(--border)' }}>
-          <p className="text-sm font-semibold text-white">Preview (first 10 rows)</p>
+          <p className="text-sm font-semibold text-foreground">Preview (first 10 rows)</p>
           <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
             This is only a preview; all valid rows are stored in the draft.
           </p>
@@ -171,8 +171,8 @@ export default function ExcelUploader() {
                 </tr>
               ) : (
                 preview.map((r, idx) => (
-                  <tr key={`${r.agentId}-${idx}`} className="hover:bg-white/5 transition-colors">
-                    <td className="px-3 py-2 text-white">{r.agentId}</td>
+                  <tr key={`${r.agentId}-${idx}`} className="hover:bg-black/[0.04] transition-colors">
+                    <td className="px-3 py-2 text-foreground">{r.agentId}</td>
                     <td className="px-3 py-2" style={{ color: 'var(--text-secondary)' }}>
                       {r.name}
                     </td>

@@ -125,7 +125,7 @@ export default function KPIBlock({ kpi, onChange, onRemove, showBaseToggle }: KP
               <div
                 key={t.id}
                 className="flex flex-wrap items-center gap-2 rounded-lg border p-3"
-                style={{ borderColor: 'var(--border)', backgroundColor: 'rgba(255,255,255,0.02)' }}
+                style={{ borderColor: 'var(--border)', backgroundColor: 'var(--surface-subtle)' }}
               >
                 <div className="text-xs flex-1" style={{ color: 'var(--text-secondary)' }}>
                   Tier {idx + 1} (dimensions not modeled yet in this UI)

@@ -16,14 +16,14 @@ export default function CampaignList() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-display font-bold text-white">Campaigns</h1>
+          <h1 className="text-2xl font-display font-bold text-foreground">Campaigns</h1>
           <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
             {filtered.length} campaign{filtered.length !== 1 ? 's' : ''}
           </p>
         </div>
         <Link
           to="/campaigns/create"
-          className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white transition-all hover:opacity-90"
+          className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
           style={{ backgroundColor: 'var(--accent-primary)' }}
         >
           <Plus className="h-4 w-4" />
@@ -111,11 +111,11 @@ export default function CampaignList() {
                 return (
                   <tr
                     key={campaign.id}
-                    className="hover:bg-white/5 transition-colors cursor-pointer"
+                    className="hover:bg-black/[0.04] transition-colors cursor-pointer"
                     onClick={() => navigate(`/campaigns/${campaign.id}`)}
                   >
                     <td className="px-4 py-3">
-                      <p className="font-medium text-white">{campaign.name}</p>
+                      <p className="font-medium text-foreground">{campaign.name}</p>
                       <p className="text-xs mt-0.5 truncate max-w-[250px]" style={{ color: 'var(--text-secondary)' }}>
                         {campaign.description}
                       </p>
@@ -137,7 +137,7 @@ export default function CampaignList() {
                       <div className="flex items-center gap-1">
                         <button
                           onClick={() => navigate(`/campaigns/${campaign.id}`)}
-                          className="p-1.5 rounded-md hover:bg-white/10 transition-colors"
+                          className="p-1.5 rounded-md hover:bg-black/[0.06] transition-colors"
                           title="View"
                           style={{ color: 'var(--text-secondary)' }}
                         >
@@ -145,7 +145,7 @@ export default function CampaignList() {
                         </button>
                         <button
                           onClick={() => navigate(`/campaigns/${campaign.id}/edit`)}
-                          className="p-1.5 rounded-md hover:bg-white/10 transition-colors"
+                          className="p-1.5 rounded-md hover:bg-black/[0.06] transition-colors"
                           title="Edit"
                           style={{ color: 'var(--text-secondary)' }}
                         >
@@ -153,7 +153,7 @@ export default function CampaignList() {
                         </button>
                         <button
                           onClick={() => duplicateCampaign(campaign.id)}
-                          className="p-1.5 rounded-md hover:bg-white/10 transition-colors"
+                          className="p-1.5 rounded-md hover:bg-black/[0.06] transition-colors"
                           title="Duplicate"
                           style={{ color: 'var(--text-secondary)' }}
                         >

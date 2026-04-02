@@ -13,7 +13,7 @@ export default function CampaignDetail() {
   if (!campaign) {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-4">
-        <p className="text-white text-lg font-semibold">Campaign not found</p>
+        <p className="text-foreground text-lg font-semibold">Campaign not found</p>
         <Link
           to="/campaigns"
           className="text-sm hover:underline"
@@ -35,14 +35,14 @@ export default function CampaignDetail() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => navigate(-1)}
-            className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+            className="p-2 rounded-lg hover:bg-black/[0.06] transition-colors"
             style={{ color: 'var(--text-secondary)' }}
           >
             <ArrowLeft className="h-4 w-4" />
           </button>
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-xl font-display font-bold text-white">{campaign.name}</h1>
+              <h1 className="text-xl font-display font-bold text-foreground">{campaign.name}</h1>
               <span className={statusConfig.badgeClass}>{statusConfig.label}</span>
             </div>
             <p className="text-xs mt-1" style={{ color: 'var(--text-secondary)' }}>
@@ -56,7 +56,7 @@ export default function CampaignDetail() {
               duplicateCampaign(campaign.id);
               navigate('/campaigns');
             }}
-            className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium border hover:bg-white/5 transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium border hover:bg-black/[0.04] transition-colors"
             style={{ borderColor: 'var(--border)', color: 'var(--text-secondary)' }}
           >
             <Copy className="h-3.5 w-3.5" />
@@ -64,7 +64,7 @@ export default function CampaignDetail() {
           </button>
           <Link
             to={`/campaigns/${campaign.id}/edit`}
-            className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-white transition-all hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-primary-foreground transition-all hover:opacity-90"
             style={{ backgroundColor: 'var(--accent-primary)' }}
           >
             <Pencil className="h-3.5 w-3.5" />
@@ -76,15 +76,15 @@ export default function CampaignDetail() {
       {/* Details Card */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="card-base p-5 space-y-4">
-          <h2 className="text-sm font-semibold text-white">Campaign Details</h2>
+          <h2 className="text-sm font-semibold text-foreground">Campaign Details</h2>
           <div className="space-y-3 text-sm">
             <div className="flex justify-between">
               <span style={{ color: 'var(--text-secondary)' }}>Type</span>
-              <span className="text-white">{typeConfig?.label ?? campaign.type}</span>
+              <span className="text-foreground">{typeConfig?.label ?? campaign.type}</span>
             </div>
             <div className="flex justify-between">
               <span style={{ color: 'var(--text-secondary)' }}>Period</span>
-              <span className="text-white flex items-center gap-1.5">
+              <span className="text-foreground flex items-center gap-1.5">
                 <Calendar className="h-3.5 w-3.5" />
                 {format(new Date(campaign.startDate), 'MMM d')} –{' '}
                 {format(new Date(campaign.endDate), 'MMM d, yyyy')}
@@ -92,11 +92,11 @@ export default function CampaignDetail() {
             </div>
             <div className="flex justify-between">
               <span style={{ color: 'var(--text-secondary)' }}>Rule Versions</span>
-              <span className="text-white">{campaign.ruleVersions.length}</span>
+              <span className="text-foreground">{campaign.ruleVersions.length}</span>
             </div>
             <div className="flex justify-between">
               <span style={{ color: 'var(--text-secondary)' }}>Created</span>
-              <span className="text-white">
+              <span className="text-foreground">
                 {format(new Date(campaign.createdAt), 'MMM d, yyyy')}
               </span>
             </div>
@@ -109,11 +109,11 @@ export default function CampaignDetail() {
         </div>
 
         <div className="card-base p-5 space-y-4">
-          <h2 className="text-sm font-semibold text-white">Targeting</h2>
+          <h2 className="text-sm font-semibold text-foreground">Targeting</h2>
           <div className="text-sm space-y-2">
             <div className="flex justify-between">
               <span style={{ color: 'var(--text-secondary)' }}>Mode</span>
-              <span className="text-white capitalize">
+              <span className="text-foreground capitalize">
                 {campaign.targeting.mode === 'hierarchy' ? 'Hierarchy Selection' : 'Excel Upload'}
               </span>
             </div>
@@ -121,19 +121,19 @@ export default function CampaignDetail() {
               <>
                 <div className="flex justify-between">
                   <span style={{ color: 'var(--text-secondary)' }}>Channels</span>
-                  <span className="text-white">
+                  <span className="text-foreground">
                     {campaign.targeting.hierarchy.channels.join(', ')}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span style={{ color: 'var(--text-secondary)' }}>Sub-Channels</span>
-                  <span className="text-white text-right max-w-[200px]">
+                  <span className="text-foreground text-right max-w-[200px]">
                     {campaign.targeting.hierarchy.subChannels.join(', ')}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span style={{ color: 'var(--text-secondary)' }}>Designations</span>
-                  <span className="text-white text-right max-w-[200px]">
+                  <span className="text-foreground text-right max-w-[200px]">
                     {campaign.targeting.hierarchy.designations.join(', ')}
                   </span>
                 </div>
@@ -152,13 +152,13 @@ export default function CampaignDetail() {
       {/* Rule Versions */}
       <div className="card-base">
         <div className="px-6 py-4 border-b" style={{ borderColor: 'var(--border)' }}>
-          <h2 className="text-sm font-semibold text-white">Rule Versions</h2>
+          <h2 className="text-sm font-semibold text-foreground">Rule Versions</h2>
         </div>
         <div className="divide-y" style={{ borderColor: 'var(--border)' }}>
           {campaign.ruleVersions.map((rv, i) => (
             <div key={rv.id} className="px-6 py-4 flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-white">{rv.label}</p>
+                <p className="text-sm font-medium text-foreground">{rv.label}</p>
                 <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
                   {format(new Date(rv.startDate), 'MMM d')} –{' '}
                   {format(new Date(rv.endDate), 'MMM d, yyyy')}

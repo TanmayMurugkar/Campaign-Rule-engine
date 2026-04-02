@@ -25,8 +25,8 @@ import RuleRow from './RuleRow';
 import { cn } from '@/lib/utils';
 
 const DEPTH_BORDER = [
-  'rgba(99,102,241,0.55)',
-  'rgba(16,185,129,0.45)',
+  'rgba(156,29,38,0.55)',
+  'rgba(201,162,39,0.45)',
   'rgba(245,158,11,0.45)',
   'rgba(236,72,153,0.45)',
 ];
@@ -55,7 +55,7 @@ function SortableChrome({
     <div ref={setNodeRef} style={style} className="flex gap-2 items-start">
       <button
         type="button"
-        className="mt-2 p-1 rounded-md hover:bg-white/10 cursor-grab active:cursor-grabbing shrink-0"
+        className="mt-2 p-1 rounded-md hover:bg-black/[0.06] cursor-grab active:cursor-grabbing shrink-0"
         style={{ color: 'var(--text-secondary)' }}
         {...attributes}
         {...listeners}
@@ -113,7 +113,7 @@ export default function RuleGroupContainer({ group, onChange, depth, onRemove }:
         borderColor: 'var(--border)',
         borderLeftWidth: depth > 0 ? 4 : 1,
         borderLeftColor: depth > 0 ? borderColor : undefined,
-        backgroundColor: depth > 0 ? 'rgba(255,255,255,0.02)' : 'transparent',
+        backgroundColor: depth > 0 ? 'var(--surface-subtle)' : 'transparent',
       }}
     >
       <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
@@ -122,7 +122,7 @@ export default function RuleGroupContainer({ group, onChange, depth, onRemove }:
             <button
               type="button"
               onClick={() => setCollapsed((c) => !c)}
-              className="p-1 rounded-md hover:bg-white/10"
+              className="p-1 rounded-md hover:bg-black/[0.06]"
               style={{ color: 'var(--text-secondary)' }}
               aria-expanded={!collapsed}
             >

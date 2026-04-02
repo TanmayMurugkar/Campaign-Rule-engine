@@ -1,0 +1,32 @@
+/* IDFC-inspired palette — works with or without Tailwind */
+:root {
+  --bg-deep: #0f0c0d;
+  --bg-panel: #181416;
+  --bg-card: #221c1e;
+  --maroon: #9c1d26;
+  --maroon-hover: #b32434;
+  --gold: #c9a227;
+  --gold-soft: rgba(201, 162, 39, 0.15);
+  --text: #faf7f5;
+  --muted: #a89e9a;
+  --border: #342b2e;
+  --warning: #e8a317;
+  --danger: #dc2626;
+}
+
+body.prototype-body {
+  background-color: var(--bg-deep);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Custom utilities when not relying on Tailwind arbitrary values */
+.brand-maroon {
+  background-color: var(--maroon);
+}
+.brand-maroon:hover {
+  background-color: var(--maroon-hover);
+}
+.text-gold {
+  color: var(--gold);
+}

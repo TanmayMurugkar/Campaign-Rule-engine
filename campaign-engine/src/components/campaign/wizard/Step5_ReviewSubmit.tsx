@@ -11,7 +11,7 @@ function CardTitle({ icon: Icon, title }: { icon: React.ElementType; title: stri
   return (
     <div className="flex items-center gap-2 pb-3 border-b" style={{ borderColor: 'var(--border)' }}>
       <Icon className="h-4 w-4" style={{ color: 'var(--accent-primary)' }} />
-      <h3 className="text-sm font-semibold text-white">{title}</h3>
+      <h3 className="text-sm font-semibold text-foreground">{title}</h3>
     </div>
   );
 }
@@ -19,7 +19,7 @@ function CardTitle({ icon: Icon, title }: { icon: React.ElementType; title: stri
 function ChecklistRow({ type, text }: { type: 'ok' | 'warn' | 'error'; text: string }) {
   const cfg =
     type === 'ok'
-      ? { Icon: CheckCircle2, color: 'var(--accent-secondary)', bg: 'rgba(16,185,129,0.08)', border: 'rgba(16,185,129,0.25)' }
+      ? { Icon: CheckCircle2, color: 'var(--accent-secondary)', bg: 'rgba(201,162,39,0.1)', border: 'rgba(201,162,39,0.28)' }
       : type === 'warn'
         ? { Icon: AlertTriangle, color: 'var(--accent-warning)', bg: 'rgba(245,158,11,0.08)', border: 'rgba(245,158,11,0.25)' }
         : { Icon: XCircle, color: 'var(--accent-danger)', bg: 'rgba(239,68,68,0.08)', border: 'rgba(239,68,68,0.25)' };
@@ -71,19 +71,19 @@ export default function Step5_ReviewSubmit() {
           <div className="text-sm space-y-2">
             <div className="flex justify-between gap-3">
               <span style={{ color: 'var(--text-secondary)' }}>Name</span>
-              <span className="text-white text-right">{campaign.name ?? '—'}</span>
+              <span className="text-foreground text-right">{campaign.name ?? '—'}</span>
             </div>
             <div className="flex justify-between gap-3">
               <span style={{ color: 'var(--text-secondary)' }}>Type</span>
-              <span className="text-white capitalize">{campaign.type ?? '—'}</span>
+              <span className="text-foreground capitalize">{campaign.type ?? '—'}</span>
             </div>
             <div className="flex justify-between gap-3">
               <span style={{ color: 'var(--text-secondary)' }}>Period</span>
-              <span className="text-white text-right">{detailsPeriod}</span>
+              <span className="text-foreground text-right">{detailsPeriod}</span>
             </div>
             <div className="flex justify-between gap-3">
               <span style={{ color: 'var(--text-secondary)' }}>ID</span>
-              <span className="text-white font-mono text-right">{campaign.id ?? '—'}</span>
+              <span className="text-foreground font-mono text-right">{campaign.id ?? '—'}</span>
             </div>
           </div>
           {campaign.description ? (
@@ -98,13 +98,13 @@ export default function Step5_ReviewSubmit() {
           <div className="text-sm space-y-2">
             <div className="flex justify-between gap-3">
               <span style={{ color: 'var(--text-secondary)' }}>Mode</span>
-              <span className="text-white">
+              <span className="text-foreground">
                 {campaign.targeting?.mode === 'excel_upload' ? 'Excel upload' : campaign.targeting?.mode === 'hierarchy' ? 'Hierarchy' : '—'}
               </span>
             </div>
             <div className="flex justify-between gap-3">
               <span style={{ color: 'var(--text-secondary)' }}>Summary</span>
-              <span className="text-white text-right">{targetingSummary}</span>
+              <span className="text-foreground text-right">{targetingSummary}</span>
             </div>
           </div>
         </div>
@@ -114,11 +114,11 @@ export default function Step5_ReviewSubmit() {
           <div className="text-sm space-y-2">
             <div className="flex justify-between gap-3">
               <span style={{ color: 'var(--text-secondary)' }}>Versions</span>
-              <span className="text-white">{versions.length}</span>
+              <span className="text-foreground">{versions.length}</span>
             </div>
             <div className="flex justify-between gap-3">
               <span style={{ color: 'var(--text-secondary)' }}>Active index</span>
-              <span className="text-white">{activeVersionIndex + 1}</span>
+              <span className="text-foreground">{activeVersionIndex + 1}</span>
             </div>
           </div>
           <div className="text-xs" style={{ color: 'var(--text-secondary)' }}>
@@ -131,7 +131,7 @@ export default function Step5_ReviewSubmit() {
       <div className="card-base p-6 space-y-4">
         <div className="flex items-center justify-between gap-3">
           <div>
-            <h2 className="text-lg font-display font-semibold text-white">Validation checklist</h2>
+            <h2 className="text-lg font-display font-semibold text-foreground">Validation checklist</h2>
             <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>
               Errors block activation; warnings are informational.
             </p>
@@ -148,7 +148,7 @@ export default function Step5_ReviewSubmit() {
       <div className="card-base p-6 space-y-4">
         <div className="flex items-center gap-2">
           <Coins className="h-4 w-4" style={{ color: 'var(--accent-primary)' }} />
-          <h2 className="text-sm font-semibold text-white">Per-version summary</h2>
+          <h2 className="text-sm font-semibold text-foreground">Per-version summary</h2>
         </div>
 
         <RuleVersionTimeline />
@@ -163,7 +163,7 @@ export default function Step5_ReviewSubmit() {
               <div key={v.id} className="rounded-xl border p-4 space-y-3" style={{ borderColor: 'var(--border)' }}>
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <p className="text-sm font-semibold text-white">{v.label}</p>
+                    <p className="text-sm font-semibold text-foreground">{v.label}</p>
                     <p className="text-xs mt-0.5" style={{ color: 'var(--text-secondary)' }}>
                       {v.startDate && v.endDate ? `${v.startDate} → ${v.endDate}` : 'Dates not set'}
                     </p>
