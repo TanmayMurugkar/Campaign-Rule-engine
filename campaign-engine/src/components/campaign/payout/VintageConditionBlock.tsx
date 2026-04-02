@@ -1,5 +1,6 @@
 import type { VintageTarget } from '@/types/payout.types';
 import { Button } from '@/components/ui/button';
+
 import { Plus, Trash2 } from 'lucide-react';
 
 interface VintageConditionBlockProps {
