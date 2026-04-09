@@ -27,7 +27,11 @@ function NotFoundPage() {
         <p style={{ color: 'var(--text-secondary)' }} className="text-sm mb-4">
           Page not found
         </p>
-        <a href="/" style={{ color: 'var(--accent-primary)' }} className="text-sm hover:underline">
+        <a
+          href={import.meta.env.BASE_URL}
+          style={{ color: 'var(--accent-primary)' }}
+          className="text-sm hover:underline"
+        >
           ← Back to Dashboard
         </a>
       </div>
@@ -37,7 +41,7 @@ function NotFoundPage() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route element={<AppShell />}>
           <Route path="/" element={<Dashboard />} />
